@@ -1,9 +1,37 @@
 
-let marca = prompt ("Ingrese la Marca")
+function mostrarAlerta (mensaje) {
+    alert(mensaje);
+}
+mostrarAlerta ("Bienvenido a CellphoneArgentina")
+
+
+let marca = prompt ("Ingrese la Marca que desee buscar")
+//let electro = prompt ("Ingrese el producto")
+
+//if para ingreso de marca del producto
+
+if (!marca) {
+    mostrarAlerta ("Por favor, ingrese la marca del producto")
+    
+} else {
+    mostrarAlerta ("Ingresaste la marca " + marca)
+}
 
 const datosBusqueda = {
-    marca: marca
+    marca: marca.trim().toLowerCase()
 };
+// if para tipo de producto
+
+/*if (!electro) {
+    mostrarAlerta ("Por favor, ingrese el producto")
+    
+} else {
+    mostrarAlerta ("Ingresaste " + electro)
+}
+
+const datosBusqueda = {
+    electro: electro.trim().toLowerCase()
+};*/
 
 
 
@@ -19,9 +47,9 @@ verItems (items)
 
 function filtrarMarca (item){
 if (datosBusqueda.marca){
-    return item.marca === datosBusqueda.marca
+    return item.marca.trim().toLowerCase() === datosBusqueda.marca;
 }
-return item;
+return true
 }
 
 function filtrarItems () {
@@ -31,12 +59,24 @@ function filtrarItems () {
     }
     else {
         console.error("No se encontraron resultados")
+        mostrarAlerta("Lo sentimos, no se encontró la marca ingresada")
     }
 }
 
 filtrarItems ()
 
+function mostrarItems (items) {
+    console.log ("Resultado de la búsqueda: ");
+    verItems(items);
+}
 
+function verElectro (productos) {
+    productos.forEach(producto => {
+        console.log(producto.marca + " - " + producto.nombre + " - " + producto.precio + " - " + producto.color)
+    });
+}
+
+verElectro(electro)
 
 
 
