@@ -1,3 +1,117 @@
+
+
 body {
-    background-color: aquamarine;
+    background-color: rgb(174, 185, 117);
+}
+.logo img {
+    width: 500px;
+}
+.car-compras {
+    display: flex;
+    justify-content: end;
+    color: black;
+}
+.direccion h2 {
+    display: flex;
+    justify-content: end;
+}
+.carrito {
+    cursor: pointer;
+margin-right: 10px;
+}
+h1 {
+    text-align: center ;
+}
+
+.car-compras {
+    position: relative;
+}
+.carrito-total{
+    position: absolute;
+    top: 55%;
+    right: 0;
+    background-color: black;
+    color: white;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.contador-product {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    width: 400px;
+    z-index: 1;
+}
+.car-product {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.info-car-product{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.info-car-titulo {
+    font-size: 15px;
+}
+
+.icon {
+    width: 30px;
+}
+.contador-product-car{
+    display: none;
+}
+
+
+
+.padre-fotos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+.celulares {
+    background-color: antiquewhite;
+    width: 350px;
+    height: 450px;
+    padding: 30px;
+    text-align: center;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.celulares img {
+    width: 300px;
+    height: 250px;
+    
+    margin: 0 auto;
+}
+.celulares button {
+    cursor: pointer;
+    color: blue;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    
+    background-color: rgb(162, 123, 198);
+    width: 50%;
+    height: 500px;
+}
+.formularioTitulo{
+    background-color: blueviolet;
+}
+.contacto{
+    display: flex;
+    flex-direction: column;
+   
+    width: 350px;
 }

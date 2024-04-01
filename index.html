@@ -7,7 +7,103 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header>
+        <div class="direccion">
+            <h2>
+                Dr. Arturo Illia 266 Fray Luis Beltrán - Santa Fé
+              </h2>
+        </div>
+        
+        <div class="logo">
+            <a href="">
+                <img src="img/Cellphone-arg.png" alt="">
+            </a>
+            
+            <h1>
+                BIENVENIDOS
+            </h1>
+        </div>
+    </header>
+    <section>
+        <div class="car-compras">
+            <div class="carrito-compras">
+                <svg class="carrito" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" 
+                    d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0
+                     0 1-1a1 1 0 0 0-1-1m-9-1a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0
+                      0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M18 6H4.27l2.55 6H15c.33 0 .62-.16.8-.4l3-4c.13-.17.2-.38.2-.6a1 1 0 
+                      0 0-1-1m-3 7H6.87l-.77 1.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-2-2a2 2 0 0 1 .25-.97l.72-1.47L2.34 4H1V3h2l.85
+                       2H18a2 2 0 0 1 2 2c0 .5-.17.92-.45 1.26l-2.91 3.89c-.36.51-.96.85-1.64.85Z"/>
+                    </svg>
+                    <div class="carrito-total">
+                      <span id="contador">0</span>
+                    </div>
+            </div>
+            
+              <div class="contador-product contador-product-car">
+                <div class="contador-productos-carrito">
+                    <div class="car-product">
+                        <div class="info-car-product">
+                            <span>1</span>
+                            <p class="info-car-titulo">Moto E32</p>
+                            <span>$0</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                          </svg>
+                    </div>
+                </div>
+                
+                <div class="carrito-total-compra">
+                    <h3>Total:</h3>
+                    <span class="total-pagar">$200</span>
+                </div>
+              </div>
+          </div>
+          
+          
+        <div class="padre-fotos">
+            <div class="celulares">
+                <img src="img/Moto e13 64gb frente.jpeg" alt="Celular">
+                  <p>MOTO E63 64gb</p>
+                  <h3>Precio: $350000</h3>
+                  <button class="btn-car">AGREGAR AL CARRITO</button>
+            </div>
+            <div class="celulares">
+                <img src="img/moto g32.jpg" alt="Celular">
+                  <p>MOTO G32 64GB</p>
+                  <h3>Precio: $400000</h3>
+                  <button class="btn-car">AGREGAR AL CARRITO</button>
+            </div>
+            <div class="celulares">
+                <img src="img/Moto G42 4-128GB frente.jpeg" alt="Celular">
+                  <p>MOTO G42 64gb</p>
+                  <h3>Precio: $300000</h3>
+                  <button class="btn-car">AGREGAR AL CARRITO</button>
+            </div>
+        </div>
+    </section>
+    <section class="formulario">
+      <div class="formularioTitulo">
+        <h3>Formulario de contacto</h3>
+        <h3>Dejanos tus consultas</h3>
+      </div>
+       
+        
+          <form class="contacto">
+
+<label for="mensaje">Dejanos tu mensaje</label>
+<textarea id="mensaje" cols="30" rows="10"></textarea>
+<input type="submit" value="Enviar Formulario">
+<input type="reset" value="Limpiar Formulario">
+        </form>
+
+    <div id="contenidoComentario"></div>
+
+    <h2>Mis mensajes</h2>
+<ul id="lista-comentarios"></ul>
+
+        
+    </section>
 <script src="js/data.js"></script>
     <script src="js/app.js"></script>
 </body>

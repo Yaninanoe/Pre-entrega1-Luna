@@ -1,40 +1,22 @@
-const items = [
+
+const productos = [
     {
-    marca: "Samsung",
-    nombre: "A4",
-    precio: 300000,
-    color: "Azul"
+        nombre: "Moto E63 64 GB",
+        precio: "350000"
     },
     {
-    marca: "Samsung",
-    nombre: "A10",
-    precio: 300000,
-    color: "Gris" 
+        nombre: "Moto G32 64 GB",
+        precio: "400000"
     },
     {
-    marca: "Motorola",
-    nombre: "E5",
-    precio: 500000,
-    color: "Azul"
-    },
-    {
-    marca: "Motorola",
-    nombre: "E7",
-    precio: 350000,
-    color: "Blanco" 
-    },
-    {
-    marca: "LG",
-    nombre: "K 525",
-    precio: 400000,
-    color: "Negro"
+        nombre: "Moto G42 64 GB",
+        precio: "300000"
     }
-    ]
-    const electro = [
-        {
-            marca: "Samsung",
-            nombre: "Heladera",
-            precio: 1000000,
-            color: "gris",
-        }
-    ]
+]
+
+
+
+
+
+
+
