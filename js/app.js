@@ -120,6 +120,7 @@ console.log(comentarios)
 mostrarComentarioHTML();
 }
 
+
 function mostrarComentarioHTML(){
     limpiarComentarios();
 comentarios.forEach(item =>{
@@ -133,11 +134,28 @@ function limpiarComentarios(){
         listaComentario.removeChild(listaComentario.firstChild)
     }
 }
+sincronizarStorage()
 
 }
+// FUNCION PARA QUE SE GUARDEN LOS COMENTARIOS EN EL STORAGE
+function sincronizarStorage(){
+    localStorage.setItem('comentarios', JSON.stringify(comentarios))
+}
+
 mensajeContacto.addEventListener("submit", agregarComentario);
 
 
+// DOM LOCAL STORAGE
+
+document.addEventListener('DOMContentLoaded', ()=>{
+/*if (JSON.parse(localStorage.getItem ("comentarios"))){
+    comentarios = JSON.parse(localStorage.getItem('comentarios'))
+}else {
+    comentarios = [];
+}*/
+comentarios = JSON.parse(localStorage.getItem('comentarios')) || []
+mostrarComentarioHTML()
+})
 
 
 
