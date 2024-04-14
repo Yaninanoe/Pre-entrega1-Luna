@@ -19,16 +19,15 @@ body {
 }
 .carrito {
     cursor: pointer;
-  
-display: flex;
-justify-content: end;
 }
 h1 {
     text-align: center ;
 }
-
-.car-compras {
+.car-compras{
     position: relative;
+}
+.carrito-compras{
+    margin-left: auto;
 }
 .carrito-total{
     position: absolute;
@@ -36,8 +35,8 @@ h1 {
     right: 0;
     background-color: black;
     color: white;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,11 +57,21 @@ h1 {
 }
 .info-car-product{
     display: flex;
+    justify-content: space-between;
+    flex: 0.7;
     align-items: center;
-    gap: 15px;
+    /*align-items: center;
+    gap: 15px;*/
 }
 .info-car-titulo {
     font-size: 15px;
+}
+.carrito-total-compra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
 }
 
 .icon {
