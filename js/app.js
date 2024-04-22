@@ -1,5 +1,4 @@
 
-// FUNCIONES PARA EL CARRITO
 
 const carrito = document.querySelector(".carrito-compras")
 const contadorProducto = document.querySelector(".contador-product")
@@ -8,20 +7,13 @@ const contadorProducto = document.querySelector(".contador-product")
 carrito.addEventListener ("click",()=>{
     contadorProducto.classList.toggle("contador-product-car")
 })
-/*-----------------------------*/
 
 const carProduct = document.querySelector(".car-product")
 const contadorProductosCarrito = document.querySelector('.contador-productos-carrito')
 
 
 
-
-/*Lista de todos los productos*/ 
-
-
 const padreFotos = document.querySelector (".padre-fotos")
-
-/*Variables de arreglo para productos */
 
 let allProducto = []
 
@@ -30,8 +22,9 @@ const contadorPts = document.querySelector('#contador')
 
 
 
-// UTILIZAR ID EN LUGAR DE TÍTULOS REALIZAR EL CAMBIO EN LOS EVENTOS
+
 padreFotos.addEventListener ('click', e=> {
+    
     if(e.target.classList.contains('btn-car')){
         const productoSec = e.target.parentElement
         const infoProductos = {
@@ -56,13 +49,20 @@ if (existProduct){
     allProducto = [...allProducto, infoProductos];
 }
 
-     
-        //llamamos la funcion mostrarHTML
+
+Toastify({
+
+    text: "Se agregó al carrito",
+    
+    duration: 3000
+    
+    }).showToast();
+    
         mostrarHTML();
     }
 })
 
-//UTILIZAR ID PARA LOS EVENTOS CAMBIAR EN LUGAR DE TÍTULO
+
 
 contadorProductosCarrito.addEventListener('click', (e)=>{
     if(e.target.classList.contains('icon')){
@@ -71,11 +71,11 @@ contadorProductosCarrito.addEventListener('click', (e)=>{
         allProducto = allProducto.filter(
             productoSec => productoSec.titulo !== titulo
         );
-        console.log(allProducto)
+        
         mostrarHTML()
     }
 })
-/*Funcion para mostrar en HTML*/
+
 
 const mostrarHTML = () => {
 
@@ -87,6 +87,9 @@ const mostrarHTML = () => {
     allProducto.forEach(productoSec => {
         const contenedorProducto = document.createElement('div')
         contenedorProducto.classList.add('car-product')
+
+        const precioNumerico = parseInt(productoSec.precio.slice(1)); // Convierte el precio a número
+
         contenedorProducto.innerHTML =`
         <div class="info-car-product">
                             <span> ${productoSec.quantity} </span>
@@ -97,8 +100,10 @@ const mostrarHTML = () => {
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                           </svg>`
                           contadorProductosCarrito.append(contenedorProducto);
+        
+                          total = total + (productoSec.quantity * precioNumerico); //suma el precio calculado
 
-        total = total + parseInt(productoSec.quantity * productoSec.precio.slice(1))
+        //total = total + parseInt(productoSec.quantity * productoSec.precio.slice(1))
         totalcompra = totalcompra + productoSec.quantity;
     });
 
@@ -108,22 +113,50 @@ const mostrarHTML = () => {
     sincronizarStorageCar()
 };
 
-//LOCAL STORAGE
 
 function sincronizarStorageCar(){
     localStorage.setItem('allProducto', JSON.stringify(allProducto))
 }
 
-// DOM LOCAL STORAGE
+function dibujarProductos (productos){
+    const info = document.querySelector("#lista-productos");
+    let html = "";
+    productos.forEach(({img, nombre, precio})=>{
+        html += `
+        <div class="celulares">
+            <img src="img/${img}" alt="Celular">
+                <p>${nombre}</p>
+                <h3>Precio: ${precio}</h3>
+                <button class="btn-car">AGREGAR AL CARRITO</button>
+            </div>
+
+        `
+    })
+    info.innerHTML = html
+}
+
 
 document.addEventListener('DOMContentLoaded', ()=>{
+
+    fetch ('data/productos.json')
+    .then(respuesta => {
+        return respuesta.json()
+    })
+    .then(data => {
+        dibujarProductos(data)
+    })
+    .catch((error)=>{
+        //Swal.fire("error");
+        //console.log(error)
+        alert("error")
+    })
 
 allProducto = JSON.parse(localStorage.getItem('allProducto')) || []
 
 })
 
 
-//FUNCIONES PARA FORMULARIO
+
 const mensajeContacto = document.querySelector(".contacto")
 const listaComentario = document.querySelector("#lista-comentarios");
 
@@ -159,7 +192,7 @@ const objComentario = {
 console.log("objComentario");
 comentarios.push(objComentario);
 mensajeContacto.reset()
-console.log(comentarios)
+
 
 mostrarComentarioHTML();
 }
@@ -183,17 +216,12 @@ function limpiarComentarios(){
   sincronizarStorage()
 }
 
-
-// FUNCION PARA QUE SE GUARDEN LOS COMENTARIOS EN EL STORAGE
 function sincronizarStorage(){
     localStorage.setItem('comentarios', JSON.stringify(comentarios))
 }
 
 mensajeContacto.addEventListener("submit", agregarComentario);
 
-
-
-// DOM LOCAL STORAGE
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
