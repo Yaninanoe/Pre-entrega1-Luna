@@ -2,17 +2,17 @@
     {
         "img": "producto1.jpeg",
         "nombre": "Moto E63 64 GB",
-        "precio": "350000"
+        "precio": "$350000"
     },
     {
         "img": "producto2.jpeg",
         "nombre": "Moto G32 64 GB",
-        "precio": "400000"
+        "precio": "$400000"
     },
     {
         "img": "producto3.jpg",
         "nombre": "Moto G42 64 GB",
-        "precio": "300000"
+        "precio": "$300000"
     }
 ]
     

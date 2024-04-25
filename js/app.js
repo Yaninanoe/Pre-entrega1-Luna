@@ -88,7 +88,8 @@ const mostrarHTML = () => {
         const contenedorProducto = document.createElement('div')
         contenedorProducto.classList.add('car-product')
 
-        const precioNumerico = parseInt(productoSec.precio.slice(1)); // Convierte el precio a número
+        //const precioNumerico = parseInt(productoSec.precio.slice(1)); // Convierte el precio a número
+        
 
         contenedorProducto.innerHTML =`
         <div class="info-car-product">
@@ -101,15 +102,15 @@ const mostrarHTML = () => {
                           </svg>`
                           contadorProductosCarrito.append(contenedorProducto);
         
-                          total = total + (productoSec.quantity * precioNumerico); //suma el precio calculado
+        // total = total + (productoSec.quantity * precioNumerico); //suma el precio calculado
 
-        //total = total + parseInt(productoSec.quantity * productoSec.precio.slice(1))
+        total = total + parseInt(productoSec.quantity * productoSec.precio.slice(1))
         totalcompra = totalcompra + productoSec.quantity;
     });
 
     totalPagar.innerText = `$ ${total}`;
     contadorPts.innerText = totalcompra;
-    console.log(totalPagar)
+    
     sincronizarStorageCar()
 };
 
@@ -145,10 +146,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     .then(data => {
         dibujarProductos(data)
     })
-    .catch((error)=>{
-        //Swal.fire("error");
-        //console.log(error)
-        alert("error")
+    .catch(()=>{
+    Swal.fire("error")
+      
     })
 
 allProducto = JSON.parse(localStorage.getItem('allProducto')) || []
@@ -159,6 +159,7 @@ allProducto = JSON.parse(localStorage.getItem('allProducto')) || []
 
 const mensajeContacto = document.querySelector(".contacto")
 const listaComentario = document.querySelector("#lista-comentarios");
+const correoMail = document.querySelector("#correo");
 
 let comentarios = [];
 
@@ -189,12 +190,18 @@ const objComentario = {
     id:Date.now(),
     texto: comentario
 }
-console.log("objComentario");
+
 comentarios.push(objComentario);
 mensajeContacto.reset()
 
 
 mostrarComentarioHTML();
+}
+
+const forml = document.querySelector('#contacto')
+forml.addEventListener('submit', mform)
+function mform (e) {
+    e.preventDefault()
 }
 
 
